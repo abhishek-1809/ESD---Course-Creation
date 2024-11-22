@@ -17,7 +17,7 @@ CREATE TABLE employees (
 
 CREATE TABLE courses (
     course_id INT AUTO_INCREMENT PRIMARY KEY,
-    course_code INT UNIQUE NOT NULL,
+    course_code VARCHAR(255) UNIQUE NOT NULL,
     name VARCHAR(255),
     description TEXT,
     year INT,
@@ -51,7 +51,7 @@ CREATE TABLE course_prerequisite(
 
 CREATE TABLE specialisation (
     specialisation_id INT AUTO_INCREMENT PRIMARY KEY,
-    code INT UNIQUE NOT NULL,
+    code VARCHAR(255) UNIQUE NOT NULL,
     name VARCHAR(255),
     description TEXT,
     year INT,

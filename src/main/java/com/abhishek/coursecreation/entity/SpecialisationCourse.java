@@ -1,7 +1,9 @@
 package com.abhishek.coursecreation.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "specialisation_course")
 public class SpecialisationCourse {
@@ -19,5 +21,5 @@ public class SpecialisationCourse {
     @ManyToOne
 //    @JoinColumn(name = "course_id", referencedColumnName = "course_id", nullable = true)
     @JoinColumn(name = "course_id")
-    private Courses course;
+    private Courses courseId;
 }

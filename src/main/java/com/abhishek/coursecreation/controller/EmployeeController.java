@@ -1,13 +1,16 @@
 package com.abhishek.coursecreation.controller;
 
+import com.abhishek.coursecreation.dto.CreateRequest;
 import com.abhishek.coursecreation.dto.LoginRequest;
-import com.abhishek.coursecreation.entity.Employee;
+import com.abhishek.coursecreation.entity.*;
 import com.abhishek.coursecreation.service.EmployeeService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @CrossOrigin
 @RequiredArgsConstructor
@@ -40,4 +43,20 @@ public class EmployeeController {
         return ResponseEntity.ok(response);
     }
 
+//    @PostMapping("/create-course")
+//    public ResponseEntity<String> createCourse(
+//            @RequestBody Courses course,
+//            @RequestBody List<CourseSchedule> schedules,
+//            @RequestBody List<CoursePrerequisite> prerequisites,
+//            @RequestBody List<SpecialisationCourse> specialisations) {
+//
+//        employeeService.createCourse(course, schedules, prerequisites, specialisations);
+//        return ResponseEntity.ok("Course created successfully!");
+//    }
+
+    @PostMapping("/create-course")
+    public ResponseEntity<String> createCourse(CreateRequest request) {
+        employeeService.createCourse(request);
+        return ResponseEntity.ok("Course created successfully!");
+    }
 }

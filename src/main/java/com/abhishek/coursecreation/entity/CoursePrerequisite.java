@@ -1,7 +1,9 @@
 package com.abhishek.coursecreation.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "course_prerequisite")
 public class CoursePrerequisite {

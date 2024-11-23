@@ -16,7 +16,7 @@ public class SpecialisationCourse {
     @ManyToOne
 //    @JoinColumn(name = "specialisation_id", referencedColumnName = "specialisation_id", nullable = true)
     @JoinColumn(name = "specialisation_id")
-    private Specialisation specialisation;
+    private Specialisation specialisationId;
 
     @ManyToOne
 //    @JoinColumn(name = "course_id", referencedColumnName = "course_id", nullable = true)

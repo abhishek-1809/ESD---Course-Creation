@@ -16,6 +16,12 @@ public class Courses {
     @Column(name="course_code", nullable = false, unique = true)
     private String courseCode;
 
+    @Column(name="name")
+    private String name;
+
+    @Column(name="description")
+    private String description;
+
     @Column(name="year")
     private int year;
 

@@ -1,4 +1,4 @@
-package com.abhishek.coursecreation.enity;
+package com.abhishek.coursecreation.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -13,7 +13,7 @@ public class Courses {
     @Column(name = "course_id")
     private int courseId;
 
-    @Column(name="course_code", nullable = false, unique = true, length = 255)
+    @Column(name="course_code", nullable = false, unique = true)
     private String courseCode;
 
     @Column(name="year")
@@ -22,7 +22,7 @@ public class Courses {
     @Column(name="term")
     private int term;
 
-    @Column(name="faculty", length = 255)
+    @Column(name="faculty")
     private String faculty;
 
     @Column(name="credits")

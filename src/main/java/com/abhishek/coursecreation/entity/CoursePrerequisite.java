@@ -1,4 +1,4 @@
-package com.abhishek.coursecreation.enity;
+package com.abhishek.coursecreation.entity;
 
 import jakarta.persistence.*;
 
@@ -12,11 +12,12 @@ public class CoursePrerequisite {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "course_id", referencedColumnName = "course_id", nullable = true)
+//    @JoinColumn(name = "course_id", referencedColumnName = "course_id", nullable = true)
+    @JoinColumn(name = "course_id")
     private Courses courseId;
 
     @ManyToOne
-    @JoinColumn(name = "prerequisite", referencedColumnName = "course_id", nullable = true)
+    @JoinColumn(name = "prerequisite")
     private Courses prerequisite;
 
     @Lob

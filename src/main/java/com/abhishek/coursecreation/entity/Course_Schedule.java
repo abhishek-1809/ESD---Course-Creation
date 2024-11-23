@@ -1,4 +1,4 @@
-package com.abhishek.coursecreation.enity;
+package com.abhishek.coursecreation.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
@@ -16,7 +16,7 @@ public class Course_Schedule {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "course_id", nullable = true, referencedColumnName = "course_id")
+    @JoinColumn(name = "course_id")
     private Courses courseId;
 
     @Temporal(TemporalType.DATE)

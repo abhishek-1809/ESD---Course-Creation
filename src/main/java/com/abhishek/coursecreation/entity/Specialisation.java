@@ -1,4 +1,4 @@
-package com.abhishek.coursecreation.enity;
+package com.abhishek.coursecreation.entity;
 
 import jakarta.persistence.*;
 

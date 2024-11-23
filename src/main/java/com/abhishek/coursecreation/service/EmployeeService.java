@@ -6,9 +6,9 @@ import com.abhishek.coursecreation.entity.*;
 import com.abhishek.coursecreation.exception.EmployeeNotFoundException;
 import com.abhishek.coursecreation.helper.EncryptionService;
 import com.abhishek.coursecreation.helper.JWTHelper;
-//import com.abhishek.coursecreation.mapper.EmployeeMapper;
+import com.abhishek.coursecreation.mapper.CreateMapper;
 import com.abhishek.coursecreation.repo.*;
-import jakarta.transaction.Transactional;
+//import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -26,6 +26,9 @@ public class EmployeeService {
 
 //    @Autowired
 //    EmployeeMapper mapper;
+
+    @Autowired
+    CreateMapper mapper;
 
     @Autowired
     EncryptionService encryptionService;
@@ -109,6 +112,18 @@ public class EmployeeService {
 
 
     public void createCourse(CreateRequest request) {
-        Courses
+        Courses course = mapper.toCourses(request);
+        Courses savedCourse = coursesRepo.save(course);
+
+        Integer cid = savedCourse.getCourseId();
+
+        CourseSchedule courseSchedule = mapper.toCourseSchedule(request,savedCourse);
+        courseScheduleRepo.save(courseSchedule);
+
+        SpecialisationCourse specialisationCourse = mapper.toSpecialisationCourse(request,savedCourse);
+        specialisationCourseRepo.save(specialisationCourse);
+
+        CoursePrerequisite coursePrerequisite = mapper.toCoursePrequisite(request,savedCourse);
+        coursePrerequisiteRepo.save(coursePrerequisite);
     }
 }

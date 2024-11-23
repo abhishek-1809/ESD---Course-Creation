@@ -47,7 +47,7 @@ public record CreateRequest (
         String building,
 
         @JsonProperty("specialisation_id")
-        String specialisationId,
+        Integer specialisationId,
 
 
         @JsonProperty("prerequisite")

@@ -34,17 +34,18 @@ public class CreateMapper {
         return courseSchedule;
     }
 
-    public SpecialisationCourse toSpecialisationCourse(CreateRequest request, Courses savedCourse) {
+    public SpecialisationCourse toSpecialisationCourse(CreateRequest request, Courses savedCourse,Specialisation specialisation) {
         SpecialisationCourse specialisationCourse = new SpecialisationCourse();
-        specialisationCourse.setSpecialisationId(request.specialisationId());//here we have to pass specialisation object
+//        Specialisation specialisation = specialisationRepo
+        specialisationCourse.setSpecialisationId(specialisation);//here we have to pass specialisation object
         specialisationCourse.setCourseId(savedCourse);
         return specialisationCourse;
     }
 
-    public CoursePrerequisite toCoursePrequisite(CreateRequest request, Courses savedCourse) {
+    public CoursePrerequisite toCoursePrequisite(CreateRequest request, Courses savedCourse,Courses courseForPre) {
         CoursePrerequisite coursePrequisite = new CoursePrerequisite();
         coursePrequisite.setCourseId(savedCourse);
-        coursePrequisite.setPrerequisite(request.prerequisite());//here we have to pass prerequisite an object of courses
+        coursePrequisite.setPrerequisite(courseForPre);//here we have to pass prerequisite an object of courses
         coursePrequisite.setDescription(request.preDescription());
         return coursePrequisite;
     }

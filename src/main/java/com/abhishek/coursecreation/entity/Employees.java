@@ -6,12 +6,12 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "employees")
-public class Employee {
+public class Employees {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id")
-    private int employeeId;
+    private Integer employeeId;
 
     @Column(name = "first_name")
     private String firstName;

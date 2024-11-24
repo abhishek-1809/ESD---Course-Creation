@@ -1,6 +1,6 @@
 package com.abhishek.coursecreation.helper;
 
-import com.abhishek.coursecreation.entity.Employee;
+import com.abhishek.coursecreation.entity.Employees;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,9 +9,9 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class EmployeePrincipal implements UserDetails {
-    private final Employee user;
+    private final Employees user;
 
-    public EmployeePrincipal(Employee user) {
+    public EmployeePrincipal(Employees user) {
         this.user = user;
     }
 

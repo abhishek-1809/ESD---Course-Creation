@@ -38,6 +38,8 @@ public class EmployeeService {
 
     @Autowired
     AuthenticationManager authManager;
+    @Autowired
+    private SpecialisationRepo specialisationRepo;
 
     //using mapper
 //    public EmployeeResponse register(EmployeeRequest request) {
@@ -120,10 +122,12 @@ public class EmployeeService {
         CourseSchedule courseSchedule = mapper.toCourseSchedule(request,savedCourse);
         courseScheduleRepo.save(courseSchedule);
 
-        SpecialisationCourse specialisationCourse = mapper.toSpecialisationCourse(request,savedCourse);
+        Specialisation specialisation = specialisationRepo.findByName(request.specialisationName());
+        SpecialisationCourse specialisationCourse = mapper.toSpecialisationCourse(request,savedCourse,specialisation);
         specialisationCourseRepo.save(specialisationCourse);
 
-        CoursePrerequisite coursePrerequisite = mapper.toCoursePrequisite(request,savedCourse);
+        Courses courseForPre = coursesRepo.findByName(request.prerequisiteName());
+        CoursePrerequisite coursePrerequisite = mapper.toCoursePrequisite(request,savedCourse,courseForPre);
         coursePrerequisiteRepo.save(coursePrerequisite);
     }
 }

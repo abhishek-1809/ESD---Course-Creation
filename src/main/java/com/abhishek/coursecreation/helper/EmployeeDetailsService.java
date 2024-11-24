@@ -1,6 +1,6 @@
 package com.abhishek.coursecreation.helper;
 
-import com.abhishek.coursecreation.entity.Employee;
+import com.abhishek.coursecreation.entity.Employees;
 import com.abhishek.coursecreation.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,7 +16,7 @@ public class EmployeeDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Employee user = repo.findByEmail(username);
+        Employees user = repo.findByEmail(username);
         if(user == null) {
             throw new UsernameNotFoundException("User not found");
         }

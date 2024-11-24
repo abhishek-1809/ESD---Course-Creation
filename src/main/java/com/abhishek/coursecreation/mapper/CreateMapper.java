@@ -46,7 +46,7 @@ public class CreateMapper {
         CoursePrerequisite coursePrequisite = new CoursePrerequisite();
         coursePrequisite.setCourseId(savedCourse);
         coursePrequisite.setPrerequisite(courseForPre);//here we have to pass prerequisite an object of courses
-        coursePrequisite.setDescription(request.preDescription());
+        coursePrequisite.setPreDescription(request.preDescription());
         return coursePrequisite;
     }
 }

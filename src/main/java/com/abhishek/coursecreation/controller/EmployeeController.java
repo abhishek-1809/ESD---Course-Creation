@@ -7,10 +7,9 @@ import com.abhishek.coursecreation.service.EmployeeService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @CrossOrigin
 @RequiredArgsConstructor
@@ -33,8 +32,8 @@ public class EmployeeController {
 //    }
 
     @PostMapping("/register")
-    public Employee createCustomer(@RequestBody @Valid Employee employee) {
-        return employeeService.register(employee);
+    public Employees createCustomer(@RequestBody @Valid Employees employees) {
+        return employeeService.register(employees);
     }
 
     @PostMapping("/login")
@@ -55,8 +54,11 @@ public class EmployeeController {
 //    }
 
     @PostMapping("/create-course")
-    public ResponseEntity<String> createCourse(CreateRequest request) {
+    public ResponseEntity<String> createCourse(@RequestBody @Valid CreateRequest request) {
+        System.out.print("Printing at Control layer:");
+        System.out.println(request);
         employeeService.createCourse(request);
+//        return new ResponseEntity<>(request, HttpStatus.OK);
         return ResponseEntity.ok("Course created successfully!");
     }
 }

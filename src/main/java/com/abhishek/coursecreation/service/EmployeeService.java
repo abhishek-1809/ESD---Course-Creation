@@ -15,8 +15,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 import static java.lang.String.format;
 
 @Service
@@ -49,19 +47,19 @@ public class EmployeeService {
 //        return mapper.toDto(savedEmployee);
 //    }
 
-    public Employee register(Employee employee) {
-        employee.setPassword(encryptionService.encode(employee.getPassword()));
+    public Employees register(Employees employees) {
+        employees.setPassword(encryptionService.encode(employees.getPassword()));
 //        Employee savedEmployee = repo.save(employee);
-        return repo.save(employee);
+        return repo.save(employees);
 
     }
 
     public String login(LoginRequest request) {
-        Employee employee = repo.findByEmail(request.email());
-        if (employee == null) {
+        Employees employees = repo.findByEmail(request.email());
+        if (employees == null) {
             throw new EmployeeNotFoundException(format("Employee with email %s not found", request.email()));
         }
-        if (employee.getDepartment() == null || !"Admin".equals(employee.getDepartment().getName())){
+        if (employees.getDepartment() == null || !"Admin".equals(employees.getDepartment().getName())){
             throw new EmployeeNotFoundException(format("Employee with email %s not found in Admin department", request.email()));
         }
         Authentication auth = authManager.authenticate(new UsernamePasswordAuthenticationToken(request.email(), request.password()));
@@ -114,6 +112,8 @@ public class EmployeeService {
 
 
     public void createCourse(CreateRequest request) {
+        System.out.print("Printing at Service:");
+        System.out.println(request);
         Courses course = mapper.toCourses(request);
         Courses savedCourse = coursesRepo.save(course);
 
@@ -129,5 +129,6 @@ public class EmployeeService {
         Courses courseForPre = coursesRepo.findByName(request.prerequisiteName());
         CoursePrerequisite coursePrerequisite = mapper.toCoursePrequisite(request,savedCourse,courseForPre);
         coursePrerequisiteRepo.save(coursePrerequisite);
+
     }
 }

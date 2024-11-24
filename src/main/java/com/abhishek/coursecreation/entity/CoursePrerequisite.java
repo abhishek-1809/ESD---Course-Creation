@@ -23,6 +23,6 @@ public class CoursePrerequisite {
     private Courses prerequisite;
 
     @Lob
-    @Column(name = "description")
-    private String description;
+    @Column(name = "pre_description")
+    private String preDescription;
 }

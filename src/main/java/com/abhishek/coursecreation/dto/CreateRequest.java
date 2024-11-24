@@ -46,12 +46,16 @@ public record CreateRequest (
         @JsonProperty("building")
         String building,
 
-        @JsonProperty("specialisation_id")
-        Integer specialisationId,
+//        @JsonProperty("specialisation_id")
+//        Integer specialisationId,
+        @JsonProperty("specialisation_name")
+        String specialisationName,
 
 
-        @JsonProperty("prerequisite")
-        Integer prerequisite,
+//        @JsonProperty("prerequisite")
+//        Integer prerequisite,
+        @JsonProperty("prerequisite_name")
+        String prerequisiteName,
 
 
         @JsonProperty("description")

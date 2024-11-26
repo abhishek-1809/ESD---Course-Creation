@@ -1,4 +1,5 @@
 import Login from "./pages/Login.jsx";
+import CreateCourse from "./pages/CreateCourse.jsx";
 import './App.css';
 
 import {
@@ -8,8 +9,13 @@ import {
 
 const router = createBrowserRouter([
   {
-    path: "/login",
+    path: "/",
     element: <Login />,
+  },
+
+  {
+    path: "/create-course",
+    element: <CreateCourse />,
   }
 ]);
 

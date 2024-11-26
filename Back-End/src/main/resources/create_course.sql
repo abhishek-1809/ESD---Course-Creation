@@ -46,7 +46,7 @@ CREATE TABLE course_prerequisite(
     id INT AUTO_INCREMENT PRIMARY KEY,
     course_id INT,
     prerequisite INT,
-    description TEXT
+    pre_description TEXT
 );
 
 CREATE TABLE specialisation (

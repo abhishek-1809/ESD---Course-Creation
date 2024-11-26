@@ -13,8 +13,8 @@ public class Courses {
     @Column(name = "course_id")
     private Integer courseId;
 
-//    @Column(name="course_code", nullable = false, unique = true)
-@Column(name="course_code")
+    @Column(name="course_code", nullable = false, unique = true)
+//    @Column(name="course_code")
     private String courseCode;
 
     @Column(name="name")

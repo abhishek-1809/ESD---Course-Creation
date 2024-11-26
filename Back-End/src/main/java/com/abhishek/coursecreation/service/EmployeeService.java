@@ -22,8 +22,6 @@ public class EmployeeService {
     @Autowired
     EmployeeRepo repo;
 
-//    @Autowired
-//    EmployeeMapper mapper;
 
     @Autowired
     CreateMapper mapper;
@@ -39,13 +37,6 @@ public class EmployeeService {
     @Autowired
     private SpecialisationRepo specialisationRepo;
 
-    //using mapper
-//    public EmployeeResponse register(EmployeeRequest request) {
-//        Employee employee = mapper.toEntity(request);
-//        employee.setPassword(encryptionService.encode(employee.getPassword()));
-//        Employee savedEmployee = repo.save(employee);
-//        return mapper.toDto(savedEmployee);
-//    }
 
     public Employees register(Employees employees) {
         employees.setPassword(encryptionService.encode(employees.getPassword()));
@@ -80,35 +71,6 @@ public class EmployeeService {
 
     @Autowired
     private SpecialisationCourseRepo specialisationCourseRepo;
-
-//    @Transactional
-//    public void createCourse(Courses course,
-//                             List<CourseSchedule> schedules,
-//                             List<CoursePrerequisite> prerequisites,
-//                             List<SpecialisationCourse> specialisations) {
-//
-//        // Save the course
-//        Courses savedCourse = coursesRepo.save(course);
-//
-//        // Save the schedules
-//        for (CourseSchedule schedule : schedules) {
-//            schedule.setCourseId(savedCourse);
-//            courseScheduleRepo.save(schedule);
-//        }
-//
-//        // Save the prerequisites
-//        for (CoursePrerequisite prerequisite : prerequisites) {
-//            prerequisite.setCourseId(savedCourse);
-//            coursePrerequisiteRepo.save(prerequisite);
-//        }
-//
-//
-//        // Save the specialisations
-//        for (SpecialisationCourse specialisation : specialisations) {
-//            specialisation.setCourseId(savedCourse);
-//            specialisationCourseRepo.save(specialisation);
-//        }
-//    }
 
 
     public void createCourse(CreateRequest request) {

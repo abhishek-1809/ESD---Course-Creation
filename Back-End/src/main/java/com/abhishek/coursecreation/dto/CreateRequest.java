@@ -7,9 +7,9 @@ import java.util.Date;
 
 public record CreateRequest (
 
-        @NotNull(message = "Customer should be present")
-        @NotEmpty(message = "Customer should be present")
-        @NotBlank(message = "Customer should be present")
+        @NotNull(message = "Course Code should be present")
+        @NotEmpty(message = "Course Code should be present")
+        @NotBlank(message = "Course Code should be present")
         @JsonProperty("course_code")
         String courseCode,
 
@@ -46,19 +46,15 @@ public record CreateRequest (
         @JsonProperty("building")
         String building,
 
-//        @JsonProperty("specialisation_id")
-//        Integer specialisationId,
         @JsonProperty("specialisation_name")
         String specialisationName,
 
 
-//        @JsonProperty("prerequisite")
-//        Integer prerequisite,
         @JsonProperty("prerequisite_name")
         String prerequisiteName,
 
 
-        @JsonProperty("description")
+        @JsonProperty("pre_description")
         String preDescription
         ){
 }

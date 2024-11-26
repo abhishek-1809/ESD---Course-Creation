@@ -69,14 +69,18 @@
 // export default Login;
 import React, { useState } from 'react';
 import './Login.css';  // Import the external CSS file
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
   // State to manage form fields
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const navigate = useNavigate();
+
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
@@ -84,13 +88,22 @@ function Login() {
       return;
     }
 
-    // Simulate login (you can replace this with an actual API call)
-    if (email === 'user@example.com' && password === 'password123') {
-      alert('Login successful!');
-      // Redirect to dashboard or another page
-    } else {
-      alert('Invalid email or password.');
-    }
+    const res = await axios.post('http://localhost:8080/login', {
+        email,
+        password
+    });
+
+    localStorage.setItem("jwtToken", JSON.stringify(res.data));
+    
+    navigate("/create-course");
+
+    // // Simulate login (you can replace this with an actual API call)
+    // if (email === 'user@example.com' && password === 'password123') {
+    //   alert('Login successful!');
+    //   // Redirect to dashboard or another page
+    // } else {
+    //   alert('Invalid email or password.');
+    // }
   };
 
   return (

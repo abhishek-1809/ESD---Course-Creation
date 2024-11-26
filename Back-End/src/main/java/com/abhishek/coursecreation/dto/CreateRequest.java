@@ -10,51 +10,51 @@ public record CreateRequest (
         @NotNull(message = "Course Code should be present")
         @NotEmpty(message = "Course Code should be present")
         @NotBlank(message = "Course Code should be present")
-        @JsonProperty("course_code")
+//        @JsonProperty("course_code")
         String courseCode,
 
-        @JsonProperty("name")
+//        @JsonProperty("name")
         String name,
 
-        @JsonProperty("description")
+//        @JsonProperty("description")
         String description,
 
-        @JsonProperty("year")
+//        @JsonProperty("year")
         Integer year,
 
-        @JsonProperty("term")
+//        @JsonProperty("term")
         Integer term,
 
-        @JsonProperty("faculty")
+//        @JsonProperty("faculty")
         String faculty,
 
-        @JsonProperty("credits")
+//        @JsonProperty("credits")
         Integer credits,
 
-        @JsonProperty("capacity")
+//        @JsonProperty("capacity")
         Integer capacity,
 
-        @JsonProperty("time")
+//        @JsonProperty("time")
         Date time,
 
-        @JsonProperty("day")
+//        @JsonProperty("day")
         String day,
 
-        @JsonProperty("room")
+//        @JsonProperty("room")
         String room,
 
-        @JsonProperty("building")
+//        @JsonProperty("building")
         String building,
 
-        @JsonProperty("specialisation_name")
+//        @JsonProperty("specialisation_name")
         String specialisationName,
 
 
-        @JsonProperty("prerequisite_name")
+//        @JsonProperty("prerequisite_name")
         String prerequisiteName,
 
 
-        @JsonProperty("pre_description")
+//        @JsonProperty("pre_description")
         String preDescription
         ){
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.*;
 
 import java.util.Date;
+import java.util.List;
 
 public record CreateRequest (
 
@@ -35,10 +36,10 @@ public record CreateRequest (
         Integer capacity,
 
 //        @JsonProperty("time")
-        Date time,
+        String time,
 
 //        @JsonProperty("day")
-        String day,
+        List<String> day,
 
 //        @JsonProperty("room")
         String room,
@@ -51,7 +52,7 @@ public record CreateRequest (
 
 
 //        @JsonProperty("prerequisite_name")
-        String prerequisiteName,
+        List<String> prerequisiteName,
 
 
 //        @JsonProperty("pre_description")

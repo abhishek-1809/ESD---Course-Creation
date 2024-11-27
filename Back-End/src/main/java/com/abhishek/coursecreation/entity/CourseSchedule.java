@@ -20,9 +20,9 @@ public class CourseSchedule {
     @JoinColumn(name = "course_id")
     private Courses courseId;
 
-    @Temporal(TemporalType.DATE)
+//    @Temporal(TemporalType.DATE)
     @Column(name = "time")
-    private Date time;
+    private String time;
 
     @Column(name = "day")
     private String day;

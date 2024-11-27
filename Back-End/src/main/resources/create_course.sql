@@ -30,7 +30,7 @@ CREATE TABLE courses (
 CREATE TABLE course_schedule (
     id INT AUTO_INCREMENT PRIMARY KEY,
     course_id INT,
-    time DATE,
+    time VARCHAR(255),
     day VARCHAR(255),
     room VARCHAR(255),
     building VARCHAR(255)

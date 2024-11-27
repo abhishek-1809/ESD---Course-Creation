@@ -78,18 +78,19 @@ public class EmployeeService {
         Courses course = mapper.toCourses(request);
         Courses savedCourse = coursesRepo.save(course);
 
-        Integer cid = savedCourse.getCourseId();
-
-        CourseSchedule courseSchedule = mapper.toCourseSchedule(request,savedCourse);
-        courseScheduleRepo.save(courseSchedule);
+        for(String d : request.day()) {
+            CourseSchedule courseSchedule = mapper.toCourseSchedule(request, savedCourse, d);
+            courseScheduleRepo.save(courseSchedule);
+        }
 
         Specialisation specialisation = specialisationRepo.findByName(request.specialisationName());
         SpecialisationCourse specialisationCourse = mapper.toSpecialisationCourse(request,savedCourse,specialisation);
         specialisationCourseRepo.save(specialisationCourse);
 
-        Courses courseForPre = coursesRepo.findByName(request.prerequisiteName());
-        CoursePrerequisite coursePrerequisite = mapper.toCoursePrequisite(request,savedCourse,courseForPre);
-        coursePrerequisiteRepo.save(coursePrerequisite);
-
+        for(String pn : request.prerequisiteName()) {
+            Courses courseForPre = coursesRepo.findByName(pn);
+            CoursePrerequisite coursePrerequisite = mapper.toCoursePrequisite(request, savedCourse, courseForPre);
+            coursePrerequisiteRepo.save(coursePrerequisite);
+        }
     }
 }

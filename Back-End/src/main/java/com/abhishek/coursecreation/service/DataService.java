@@ -33,7 +33,6 @@ public class DataService {
         List<Courses> courses = coursesRepo.findAll();
         List<String> courseNames = new ArrayList<>();
 
-        // Using a for loop to iterate through the specialisations
         for (Courses course : courses) {
             courseNames.add(course.getName());
         }

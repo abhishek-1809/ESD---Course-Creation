@@ -24,11 +24,11 @@ public class CreateMapper {
         return course;
     }
 
-    public CourseSchedule toCourseSchedule(CreateRequest request, Courses savedCourse) {
+    public CourseSchedule toCourseSchedule(CreateRequest request, Courses savedCourse, String d) {
         CourseSchedule courseSchedule = new CourseSchedule();
         courseSchedule.setCourseId(savedCourse);
         courseSchedule.setTime(request.time());
-        courseSchedule.setDay(request.day());
+        courseSchedule.setDay(d);
         courseSchedule.setRoom(request.room());
         courseSchedule.setBuilding(request.building());
         return courseSchedule;
